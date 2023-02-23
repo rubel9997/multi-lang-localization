@@ -38,9 +38,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        {{-- @foreach (config('app.available_locales') as $locale)
+                        {{-- @foreach (config('languages') as $lang=> $locale)
                              <li class="nav-item">
-                            <a class="nav-link" href="{{ route(Illuminate\Support\Facades\Route::currentRouteName(),$locale) }}">{{ strtoupper($locale) }}</a>
+                            <a class="nav-link" href="{{ route(Illuminate\Support\Facades\Route::currentRouteName(),$lang) }}">{{ strtoupper($locale) }}</a>
                         </li>
                         @endforeach --}}
 
@@ -48,7 +48,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"  role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Config::get('languages')[App::getLocale()] }}
                             </a>
-                            <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
                             @foreach (Config::get('languages') as $lang => $language)
                                 @if ($lang != App::getLocale())
                                         <a class="dropdown-item" href="{{ route(Illuminate\Support\Facades\Route::currentRouteName(), $lang) }}"> {{$language}}</a>
